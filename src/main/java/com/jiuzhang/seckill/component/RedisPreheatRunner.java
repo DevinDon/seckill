@@ -1,7 +1,10 @@
 package com.jiuzhang.seckill.component;
 
+import com.alibaba.fastjson.JSON;
 import com.jiuzhang.seckill.db.dao.SeckillActivityDao;
+import com.jiuzhang.seckill.db.dao.SeckillCommodityDao;
 import com.jiuzhang.seckill.db.po.SeckillActivity;
+import com.jiuzhang.seckill.db.po.SeckillCommodity;
 import com.jiuzhang.seckill.util.RedisService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -32,4 +35,5 @@ public class RedisPreheatRunner implements ApplicationRunner {
                     (long) seckillActivity.getAvailableStock());
         }
     }
+
 }
