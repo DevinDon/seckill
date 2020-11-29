@@ -32,6 +32,7 @@ public class SeckillActivityService {
 
     @Autowired
     SeckillCommodityDao seckillCommodityDao;
+
     @Autowired
     OrderDao orderDao;
 

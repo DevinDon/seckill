@@ -50,8 +50,9 @@ public class RedisService {
      * @throws Exception
      */
     public boolean stockDeductValidator(String key)  {
+        Jedis jedisClient = null;
         try {
-            Jedis jedisClient = jedisPool.getResource();
+            jedisClient = jedisPool.getResource();
 
             String script = "if redis.call('exists',KEYS[1]) == 1 then\n" +
                     "                 local stock = tonumber(redis.call('get', KEYS[1]))\n" +
@@ -75,6 +76,10 @@ public class RedisService {
         } catch (Throwable throwable) {
             System.out.println("库存扣减失败：" + throwable.toString());
             return false;
+        } finally {
+            if(jedisClient != null) {
+                jedisClient.close();
+            }
         }
     }
 
