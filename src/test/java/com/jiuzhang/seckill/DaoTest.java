@@ -14,7 +14,7 @@ import java.util.List;
 @SpringBootTest
 public class DaoTest {
 
-    @Resource
+    @Autowired
     private SeckillActivityMapper seckillActivityMapper;
 
     @Autowired
